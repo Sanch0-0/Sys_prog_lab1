@@ -13,8 +13,9 @@ def main():
 
     words = split_words(text)
 
-    clean_words = clean_words(words)
+    cleaned_words = clean_words(words)
 
+    word_counts = print(count_words(cleaned_words))
 
 def read(file):
     with open(file, 'r', encoding='utf-8') as file:
@@ -23,7 +24,7 @@ def read(file):
 
 
 def split_words(text):
-    split_words = text.split().lower()
+    splitted_words = text.split()
     
     return splitted_words
 
@@ -34,11 +35,9 @@ def clean_words(splitted_words):
     return " ".join(cleaned_words)
 
 
-def count_chars(splitted_words):
-    for char in splitted_words:
-        cnt = Counter(char)
-
-    return dict(cnt)
+def count_words(cleaned_words):
+    c_w = Counter(cleaned_words)
+    return c_w
 
 
 def sort_by_usage():
