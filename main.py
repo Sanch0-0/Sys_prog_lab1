@@ -1,17 +1,19 @@
 from collections import Counter
+import sys
 
 def main():
-    read()
-    split_words()
-    count_chars()
-    sort_by_usage()
-    write_result()
+    if len(sys.argv) < 2: #нужно чтобы пользователь передал 2 аргумента.
+        print("Usage: python script.py <filename>")
+        sys.exit(1)
 
-def read(text):
-    with open('Марина_Беляева_Лес_тебя_любит.txt', 'r', 'utf-8') as file:
-        lines = file.readlines()
+    input_file = sys.argv[1]
 
-    return lines
+    text = read(input_file)
+
+
+def read(file):
+    with open(file, 'r', encoding='utf-8') as file:
+        return file.read()
 
 def split_words(lines):
     splitted_words = split(lines).strip().lower()
